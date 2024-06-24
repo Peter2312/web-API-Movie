@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies House</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Movies House</h1>
+    <!-- Login form -->
+    <div id="loginForm" class="form-container">
+      <h2>LOGIN</h2>
+      <form onsubmit="login(event)" action="/api/users/login" method="POST">
+        <input type="text" id="loginUsername" placeholder="Username" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+      <div id="loginErrorMessage" class="error-message"></div>
+      <button onclick="showRegisterForm()">New User? Sign Up Here</button> 
+    </div>
+
+    <!-- Registration form -->
+    <div id="registerForm" class="form-container" style="display: none;">
+      <h2>REGISTRATION</h2>
+      <form onsubmit="register(event)" action="/api/users/register" method="POST">
+        <input type="text" id="registerUsername" placeholder="Username" required>
+        <input type="password" id="registerPassword" placeholder="Password" required>
+        <button type="submit">Register</button>
+      </form>
+      <div id="registerErrorMessage" class="error-message"></div>
+      <div id="registerSuccessMessage" class="success-message"></div>
+      <button onclick="showLoginForm()">Back to Login Page</button> 
+    </div>
+
+    <!-- Movie search container -->
+    <div id="movieSearchContainer" style="display: none;">
+      <div class="search-container">
+        <button onclick="logout()" class="logout-button">Log Out</button>
+        <input type="text" id="searchInput" placeholder="Search For A Movie Here">
+        <button onclick="searchMovie()">SEARCH</button>
+      </div>
+      <div id="errorMessage" class="error-message"></div>
+      <div id="results"></div>
+    </div>
+  </div>
+  <script>
+    //function goBack() {
+      //window.location.href = 'homePage.html';
+    //}
+  </script>
+  <script src="./app.js"></script>
+</body>
+</html>
